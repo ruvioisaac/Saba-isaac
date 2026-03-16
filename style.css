@@ -1,0 +1,140 @@
+/* ===== בסיס האתר ===== */
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 12pt;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  background: #faf7f2;
+}
+
+header {
+  background: #d9a86c;
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+
+/* ===== גריד של 5 כרטיסים בשורה ===== */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ===== כותרת קטגוריה ===== */
+.category-title {
+  font-size: 16pt;
+  font-weight: 600;
+  margin: 40px 0 5px 0;
+  padding-right: 20px;
+  color: #333;
+  text-align: right;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 8px;
+}
+
+/* ===== כרטיס מתכון — גרסה נקייה ואחידה ===== */
+.recipe-card {
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+  /* חשוב! כדי שהכפתור יישב בתחתית */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  box-sizing: border-box;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+}
+
+/* ===== תמונה בכרטיס ===== */
+.recipe-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ===== שם המתכון ===== */
+.recipe-card .recipe-name {
+  min-height: 48px;
+  font-weight: bold;
+  margin: 10px 0;
+  line-height: 1.2;
+}
+
+/* ===== כפתור "למתכון" ===== */
+.recipe-card .open-btn {
+  margin-top: auto;
+  padding: 8px 12px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.recipe-card .open-btn:hover {
+  background: #555;
+}
+
+/* ===== עמוד מתכון ===== */
+#recipe-image {
+  width: 25%;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.recipe-container {
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+  font-size: 20px;
+}
+
+#recipe-content {
+  white-space: pre-line;
+  line-height: 1.9;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* ===== הדפסה ===== */
+@media print {
+  body {
+    margin: 20mm;
+  }
+
+  script {
+    display: none !important;
+  }
+
+  .recipe-container {
+    padding: 0;
+  }
+}
+.facebook-icon {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.facebook-icon img {
+    width: 32px;
+    height: auto;
+    cursor: pointer;
+}
