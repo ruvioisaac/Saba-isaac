@@ -284,6 +284,8 @@ body {
   transition: transform var(--transition-smooth),
               box-shadow var(--transition-smooth);
   animation: card-enter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  display: flex;
+  flex-direction: column;
 }
 
 .recipe-card:hover {
@@ -347,6 +349,9 @@ body {
 /* Card body */
 .card-body {
   padding: 1rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card-title {
@@ -355,6 +360,7 @@ body {
   color: var(--color-coffee);
   line-height: 1.35;
   margin-bottom: 0.8rem;
+  flex: 1;
 }
 
 .card-cta {
