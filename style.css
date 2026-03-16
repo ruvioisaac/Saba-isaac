@@ -994,55 +994,95 @@ body.modal-open {
    PRINT STYLES
    ============================================ */
 @media print {
+  /* Hide non-essential elements */
   .grain-overlay,
   .back-btn,
+  .modal-actions,
   .recipe-actions,
   .recipe-footer-nav,
-  .recipe-hero-overlay {
+  .modal-close,
+  .modal-nav,
+  .modal-backdrop,
+  .similar-section,
+  .recipe-divider,
+  .site-header,
+  .filter-bar,
+  .main-content,
+  .site-footer,
+  .header-social,
+  .recipe-badge {
     display: none !important;
   }
 
-  body {
-    background: white;
-    color: black;
+  body, body.modal-open {
+    background: white !important;
+    color: black !important;
+    overflow: visible !important;
   }
 
-  .recipe-hero {
-    height: auto;
-    max-height: 300px;
+  /* Reset modal for print */
+  .modal-overlay, .modal-overlay.open, .modal-overlay.visible {
+    display: block !important;
+    position: static !important;
+    background: none !important;
   }
 
-  .recipe-hero-img {
-    width: 60%;
-    margin: 0 auto;
-    display: block;
-    border-radius: 8px;
+  .modal-container {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: white !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 
-  .recipe-hero-content {
-    position: static;
-    padding: 1rem 0;
+  /* Hero: show image nicely with title below */
+  .modal-hero {
+    height: auto !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
   }
 
-  .recipe-hero-title {
-    color: black;
-    text-shadow: none;
-    text-align: center;
-    font-size: 1.8rem;
+  .modal-hero-img {
+    width: 50% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 10px !important;
+    animation: none !important;
   }
 
-  .recipe-body {
-    margin-top: 0;
+  .modal-hero-overlay {
+    display: none !important;
   }
 
-  .recipe-body-inner {
-    box-shadow: none;
-    padding: 1rem 0;
+  .modal-hero-content {
+    position: static !important;
+    padding: 1rem 0 !important;
+    text-align: center !important;
+    animation: none !important;
+  }
+
+  .modal-hero-title {
+    color: black !important;
+    text-shadow: none !important;
+    font-size: 1.8rem !important;
+  }
+
+  /* Body */
+  .modal-body {
+    padding: 0.5rem 0 !important;
   }
 
   .recipe-text {
-    font-size: 12pt;
-    line-height: 1.7;
+    font-size: 12pt !important;
+    line-height: 1.8 !important;
+    color: black !important;
   }
 }
 
