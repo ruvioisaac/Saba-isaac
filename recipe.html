@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he">
 <head>
   <meta charset="UTF-8">
-  <title>מתכון</title>
-  <link rel="stylesheet" href="style.css">
+  <title>מתכון — סבא איציק אופה</title>
+  <script>
+    // Redirect old recipe.html?id=N URLs to index.html#recipe/N
+    const id = new URLSearchParams(window.location.search).get("id");
+    if (id) {
+      window.location.replace("index.html#recipe/" + id);
+    } else {
+      window.location.replace("index.html");
+    }
+  </script>
 </head>
-<body>
-
-  <div class="recipe-container">
-    <button class="back-btn" onclick="goBack()">חזרה לדף הראשי</button>
-    <button class="print-btn" onclick="window.print()">הדפס</button>
-
-    <h1 id="recipe-title"></h1>
-<img id="recipe-image" alt="">
-
-    <div id="recipe-content"></div>
-  
-<script src="recipes.js"></script>
-<script src="recipe.js"></script>
-</body>
+<body></body>
 </html>

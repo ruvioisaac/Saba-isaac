@@ -1,25 +1,105 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>ספר מתכוני אפייה</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+  <title>סבא איציק אופה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Suez+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <!-- אייקון פייסבוק -->
-  <a href="https://www.facebook.com/profile.php?id=61558004886525" 
-     target="_blank" 
-     class="facebook-icon">
-    <img src="images/facebook.png" alt="Facebook">
-  </a>
 
-  <h1>מתכוני האפייה של סבא איציק</h1>
-</header>
+  <div class="grain-overlay" aria-hidden="true"></div>
 
-<main id="recipes-container"></main>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-decoration" aria-hidden="true">
+        <span class="wheat wheat-right">🌾</span>
+        <span class="wheat wheat-left">🌾</span>
+      </div>
+      <p class="header-subtitle">ספר המתכונים של המשפחה</p>
+      <h1 class="header-title">סבא איציק אופה</h1>
+      <p class="header-tagline">מתכוני אפייה ביתיים &#8226; מסורת של טעם</p>
+      <a href="https://www.facebook.com/profile.php?id=61558004886525"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="facebook-link"
+         aria-label="Facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <nav class="filter-bar" aria-label="סינון לפי קטגוריה">
+    <div class="filter-inner">
+      <button class="filter-chip active" data-category="all">הכל</button>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div id="recipes-container" class="recipe-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>בתיאבון! 🍞</p>
+  </footer>
+
+  <!-- ====== RECIPE MODAL OVERLAY ====== -->
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+
+    <div class="modal-container" id="modal-container">
+      <!-- Close button -->
+      <button class="modal-close" id="modal-close" aria-label="סגור">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Hero image -->
+      <div class="modal-hero">
+        <img id="modal-image" class="modal-hero-img" alt="">
+        <div class="modal-hero-overlay"></div>
+        <div class="modal-hero-content">
+          <span id="modal-badge" class="recipe-badge"></span>
+          <h2 id="modal-title" class="modal-hero-title"></h2>
+        </div>
+        <!-- Prev / Next inside hero -->
+        <button class="modal-nav modal-nav-prev" id="nav-prev" aria-label="המתכון הקודם">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="modal-nav modal-nav-next" id="nav-next" aria-label="המתכון הבא">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <div class="modal-actions">
+          <button class="action-btn print-btn" id="modal-print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            הדפסה
+          </button>
+          <button class="action-btn share-btn" id="modal-share">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            שיתוף
+          </button>
+        </div>
+
+        <div class="recipe-divider" aria-hidden="true"><span class="divider-icon">🍞</span></div>
+
+        <div id="modal-content" class="recipe-text"></div>
+
+        <div class="recipe-divider" aria-hidden="true"><span class="divider-icon">🌾</span></div>
+
+        <!-- Similar recipes -->
+        <section id="modal-similar-section" class="similar-section" style="display:none">
+          <h3 class="similar-title">עוד מתכונים שאולי תאהבו</h3>
+          <div id="modal-similar-grid" class="similar-grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
 
 <script src="recipes.js"></script>
 <script src="app.js"></script>
